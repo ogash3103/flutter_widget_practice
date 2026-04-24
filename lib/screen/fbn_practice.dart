@@ -8,31 +8,31 @@ class FbnPractice extends StatefulWidget {
 }
 
 class _FbnPracticeState extends State<FbnPractice> {
-  bool isPlaying = false;
+  List<String> todos = [];
+
+  void _addTodo() {
+    setState(() {
+      todos.add("Yangi vazifa ${todos.length + 1}");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            isPlaying = !isPlaying;
-          });
-        },
-        child: AnimatedSwitcher(
-          duration: Duration(milliseconds: 300),
-          transitionBuilder: (Widget child, Animation<double> animation) {
-            return RotationTransition(
-              turns: Tween(begin: 0.0, end: 0.5).animate(animation),
-              child: child,
-            );
-          },
-          child: Icon(
-            isPlaying ? Icons.pause : Icons.play_arrow,
-            key: ValueKey<bool>(isPlaying),
-          ),
+      appBar: AppBar(title: Text("Vazifalar")),
+      body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) => ListTile(
+          title: Text(todos[index]),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addTodo,
+        tooltip: "Yangi vazifa qo'shish", // Accessibility uchun
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

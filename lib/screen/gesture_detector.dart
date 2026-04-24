@@ -38,6 +38,7 @@ class _GestureDetectorPracticeState extends State<GestureDetectorPractice> {
                 onLongPress: () => setState(() {
                   _color = Colors.blue;
                   _size = 100;
+
                 }),
                 child: AnimatedContainer(
                   duration: Duration(milliseconds: 300),

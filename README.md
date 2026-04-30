@@ -3,6 +3,6 @@
 practice UI
 
 <p align="center">
-  <img src="img.png" width="250">
-  <img src="img.png" width="250">
+  <img src="asset/images/img.png" width="250">
+  <img src="asset/images/img.png" width="250">
 </p>
